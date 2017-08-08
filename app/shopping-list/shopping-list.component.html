@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Shopping List Component</title>
-</head>
-<body>
-    <h3>Shopping List Component!</h3>
-    <br/>
-    <hr/>
-    <app-header></app-header>
-</body>
-</html>
+<div class="row">
+    <div class="col-xs-10">
+         <app-shopping-edit 
+         (ingredientAdded)="onIngredientAdded($event)"></app-shopping-edit>   <!-- We can listen our ingredientAdded event here, and we want to execute on IngredientAdded and will get some data which always stored in dollars -->
+        <hr>
+        <ul class="list-group">
+            <a 
+            class="list-group-item"
+            style="cursor: pointer"
+            *ngFor="let ingredient of ingredients" 
+            >
+            {{ ingredient.name }} ({{ ingredient.amount }})
+            </a>
+        </ul>
+    </div>
+</div>
