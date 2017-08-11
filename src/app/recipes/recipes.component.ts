@@ -1,5 +1,5 @@
 import { RecipeService } from './recipe.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from './recipe.model';
 
 @Component({
@@ -8,6 +8,17 @@ import { Recipe } from './recipe.model';
   styleUrls: ['./recipes.component.css'],
   providers: [ RecipeService ]
 })
-export class RecipesComponent {
+export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
+
+  constructor(private recipseService: RecipeService) { }
+
+  ngOnInit() {
+    this.recipseService.recipeSelected    // On recipeSelected we can subscribe, and get informed about any changes.
+       .subscribe(
+         (recipe: Recipe) => {
+           this.selectedRecipe = recipe;
+         }
+       );
+  }
 }
