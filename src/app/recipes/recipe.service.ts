@@ -49,4 +49,9 @@ export class RecipeService {
   updateRecipe(index: number, newRecipe: Recipe) {
      this.recipes[index] = newRecipe;
   }
+
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);                    
+    this.recipesChanged.next(this.recipes.slice());   // emit of copy of updated recipes 
+  }
 }
