@@ -19,6 +19,9 @@ const recipesRoutes: Routes = [
     imports: [
         RouterModule.forChild(recipesRoutes)              // we must use "forChild" cus we are not on root routing module, we are on child.
     ],
-    exports: [RouterModule]
+    exports: [RouterModule],
+    providers: [
+        AuthGard
+    ]
 })
 export class RecipesRoutingModule { }
