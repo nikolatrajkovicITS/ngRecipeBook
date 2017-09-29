@@ -7,7 +7,7 @@ import { AuthGard } from '../auth/auth-guard.service';
 import { Routes, RouterModule } from '@angular/router';
 
 const recipesRoutes: Routes = [
-    { path: 'recipes', component: RecipesComponent, children: [
+    { path: '', component: RecipesComponent, children: [
         { path: '', component: RecipeStartComponent },
         { path: 'new', component: RecipeEditComponent, canActivate: [AuthGard] }, 
         { path: ':id', component: RecipeDetailComponent },
