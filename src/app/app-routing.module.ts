@@ -1,6 +1,6 @@
 import { HomeComponent } from './core/home/home.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
@@ -13,7 +13,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(appRoutes)],
+    imports: [RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})],
     exports: [RouterModule]
   })
   export class AppRoutingModule { 
