@@ -1,3 +1,4 @@
+import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
@@ -13,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DataStorageService } from './shared/data-storage.service';
 import { AuthGard } from './auth/auth-guard.service';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { shoppingListReducer } from './shopping-list/store/shopping-list.reducers';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
     SharedModule,
     ShoppingListModule,
     AuthModule,
-    CoreModule
+    CoreModule,
+    StoreModule.forRoot({shoppingList: shoppingListReducer})
   ],
   bootstrap: [AppComponent]
 })
